@@ -29,6 +29,7 @@ function showBeers(beerJSON) {
   beerJSON.forEach((beer) => {
     console.log("Beer", beer);
     beerClone = beerTemplate.cloneNode(true).content;
+    beerClone.querySelector(".beer_link").href = `beer.html?id=${beer.id}`;
     beerClone.querySelector(".beer_image").src = beer.image_url;
     beerClone.querySelector(".beer_image").alt = `Picture of a ${beer.name} beer`;
     beerClone.querySelector(".beer_name").textContent = beer.name;
