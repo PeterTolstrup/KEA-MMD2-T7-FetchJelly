@@ -38,13 +38,13 @@ header {
   margin-bottom: 2rem;
 }
 
-.beer_container {
+.jelly_container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 1rem;
 }
 
-.beer_article {
+.jelly_article {
   position: relative;
   background-color: rgb(237, 229, 217);
   padding: 2rem;
@@ -53,20 +53,20 @@ header {
   gap: 1rem;
 }
 
-.beer_article.strong {
+.jelly_article.strong {
   background-color: rgb(237, 221, 217);
 }
 
-.beer_article.twist {
+.jelly_article.twist {
   background-color: rgb(226, 237, 217);
 }
 
-.beer_tagline {
+.jelly_tagline {
   font-style: italic;
   color: rgb(6, 79, 108);
 }
 
-.beer_link {
+.jelly_link {
   position: absolute;
   top: 0;
   left: 0;
@@ -74,7 +74,7 @@ header {
   height: 100%;
 }
 
-.beer_twist {
+.jelly_twist {
   position: absolute;
   top: 50%;
   background-color: rgb(132, 216, 63);
@@ -85,31 +85,30 @@ header {
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 }
 
-.beer_image_container {
+.jelly_image_container {
   display: flex;
   flex-direction: row;
   justify-content: center;
   padding: 0.5rem;
 }
 
-.beer_image {
+.jelly_image {
   max-width: 100%;
-  height: 350px;
 }
 
-.beer_abv_info {
+.jelly_abv_info {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
-.beer_abv {
+.jelly_abv {
   background-color: rgb(6, 79, 108);
   color: white;
   padding: 0.5rem;
 }
 
-.beer_strong {
+.jelly_strong {
   background-color: rgb(215, 47, 17);
   color: white;
   padding: 0.5rem;
@@ -119,35 +118,32 @@ header {
   display: none;
 }
 
-.single_beer {
+.single_jelly {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 2rem;
 }
 
-.single_beer p {
+.single_jelly p {
   width: 100%;
   max-width: 55ch;
 }
 
-.single_beer section {
-}
-
-.single_beer_info {
+.single_jelly_info {
   display: flex;
   flex-direction: column;
 }
 
-.single_beer_info img {
+.single_jelly_info img {
   max-height: 450px;
   align-self: center;
   margin: 2rem 0;
 }
 
-.single_beer_info ul {
+.single_jelly_info ul {
   list-style: none;
 }
 
-.single_beer_info li {
+.single_jelly_info li {
   margin-top: 0.5rem;
 }

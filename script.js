@@ -1,52 +1,57 @@
 window.addEventListener("DOMContentLoaded", init);
 
-const beerURL = "https://api.punkapi.com/v2/beers";
+const jellyURL = "https://jellybellywikiapi.onrender.com/api/Beans";
 
-let beerTemplate;
-let beerContainer;
+let jellyTemplate;
+let jellyContainer;
 
 function init() {
-  beerTemplate = document.querySelector(".beer_template");
+  jellyTemplate = document.querySelector(".jelly_template");
 
-  beerContainer = document.querySelector(".beer_container");
+  jellyContainer = document.querySelector(".jelly_container");
 
-  fetch(beerURL)
+  fetch(jellyURL)
     .then(function (response) {
+      console.log("response", response);
       return response.json();
     })
     .then(function (json) {
-      showBeers(json);
+      console.log("json", json);
+      showJelly(json.items);
     });
 }
 
-function showBeers(beerJSON) {
-  let beerClone;
+function showJelly(jellyJSON) {
+  let jellyClone;
 
-  console.log("beerJSON", beerJSON[0]);
+  console.log("jellyJSON[0]", jellyJSON[0]);
 
-  beerJSON.forEach((beer) => {
-    beerClone = beerTemplate.cloneNode(true).content;
-    beerClone.querySelector(".beer_link").href = `beer.html?id=${beer.id}`;
-    beerClone.querySelector(".beer_abv_data").textContent = beer.abv;
+  jellyJSON.forEach((jelly) => {
+    console.log("jelly", jelly);
+    jellyClone = jellyTemplate.cloneNode(true).content;
+    jellyClone.querySelector(".jelly_link").href = `jelly.html?id=${jelly.id}`;
+    jellyClone.querySelector(".jelly_abv_data").textContent = jelly.abv;
 
-    if (beer.abv >= 5.5) {
-      beerClone.querySelector(".beer_strong").classList.remove("hide");
-      beerClone.querySelector(".beer_article").classList.add("strong");
-    } else if (beer.abv <= 4.4) {
-      beerClone.querySelector(".beer_article").classList.add("mild");
+    /*
+    if (jelly.abv >= 5.5) {
+      jellyClone.querySelector(".jelly_strong").classList.remove("hide");
+      jellyClone.querySelector(".jelly_article").classList.add("strong");
+    } else if (jelly.abv <= 4.4) {
+      jellyClone.querySelector(".jelly_article").classList.add("mild");
     }
 
-    if (beer.method.twist) {
-      beerClone.querySelector(".beer_twist").classList.remove("hide");
-      beerClone.querySelector(".beer_article").classList.add("twist");
+    if (jelly.method.twist) {
+      jellyClone.querySelector(".jelly_twist").classList.remove("hide");
+      jellyClone.querySelector(".jelly_article").classList.add("twist");
     }
+      */
 
-    beerClone.querySelector(".beer_image").src = beer.image_url;
-    beerClone.querySelector(".beer_image").alt = `Picture of a ${beer.name} beer`;
-    beerClone.querySelector(".beer_name").textContent = beer.name;
-    beerClone.querySelector(".beer_tagline").textContent = beer.tagline;
-    beerClone.querySelector(".beer_description").textContent = beer.description;
+    jellyClone.querySelector(".jelly_image").src = jelly.imageUrl;
+    jellyClone.querySelector(".jelly_image").alt = `Picture of a ${jelly.flavorName} jelly`;
+    jellyClone.querySelector(".jelly_name").textContent = jelly.flavorName;
+    jellyClone.querySelector(".jelly_tagline").textContent = jelly.flavorName;
+    jellyClone.querySelector(".jelly_description").textContent = jelly.description;
 
-    beerContainer.appendChild(beerClone);
+    jellyContainer.appendChild(jellyClone);
   });
 }
