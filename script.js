@@ -1,6 +1,7 @@
 window.addEventListener("DOMContentLoaded", init);
 
-const jellyURL = "https://jellybellywikiapi.onrender.com/api/Beans";
+const amout = 20;
+const jellyURL = `https://jellybellywikiapi.onrender.com/api/Beans?pageSize=${amout}`;
 
 let jellyTemplate;
 let jellyContainer;
@@ -29,27 +30,14 @@ function showJelly(jellyJSON) {
   jellyJSON.forEach((jelly) => {
     console.log("jelly", jelly);
     jellyClone = jellyTemplate.cloneNode(true).content;
-    jellyClone.querySelector(".jelly_link").href = `jelly.html?id=${jelly.id}`;
-    jellyClone.querySelector(".jelly_abv_data").textContent = jelly.abv;
+    jellyClone.querySelector(".jelly_name").style.color = jelly.backgroundColor;
 
-    /*
-    if (jelly.abv >= 5.5) {
-      jellyClone.querySelector(".jelly_strong").classList.remove("hide");
-      jellyClone.querySelector(".jelly_article").classList.add("strong");
-    } else if (jelly.abv <= 4.4) {
-      jellyClone.querySelector(".jelly_article").classList.add("mild");
-    }
-
-    if (jelly.method.twist) {
-      jellyClone.querySelector(".jelly_twist").classList.remove("hide");
-      jellyClone.querySelector(".jelly_article").classList.add("twist");
-    }
-      */
+    jellyClone.querySelector(".jelly_article").href = `jelly.html?id=${jelly.id}`;
 
     jellyClone.querySelector(".jelly_image").src = jelly.imageUrl;
     jellyClone.querySelector(".jelly_image").alt = `Picture of a ${jelly.flavorName} jelly`;
     jellyClone.querySelector(".jelly_name").textContent = jelly.flavorName;
-    jellyClone.querySelector(".jelly_tagline").textContent = jelly.flavorName;
+    jellyClone.querySelector(".jelly_tagline").textContent = jelly.groupName[0];
     jellyClone.querySelector(".jelly_description").textContent = jelly.description;
 
     jellyContainer.appendChild(jellyClone);

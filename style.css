@@ -53,17 +53,9 @@ header {
   gap: 1rem;
 }
 
-.jelly_article.strong {
-  background-color: rgb(237, 221, 217);
-}
-
-.jelly_article.twist {
-  background-color: rgb(226, 237, 217);
-}
-
 .jelly_tagline {
   font-style: italic;
-  color: rgb(6, 79, 108);
+  color: rgb(3, 42, 57);
 }
 
 .jelly_link {
@@ -72,17 +64,6 @@ header {
   left: 0;
   width: 100%;
   height: 100%;
-}
-
-.jelly_twist {
-  position: absolute;
-  top: 50%;
-  background-color: rgb(132, 216, 63);
-  width: 80%;
-  padding: 1rem;
-  text-align: center;
-  font-size: larger;
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 }
 
 .jelly_image_container {
@@ -100,18 +81,6 @@ header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-}
-
-.jelly_abv {
-  background-color: rgb(6, 79, 108);
-  color: white;
-  padding: 0.5rem;
-}
-
-.jelly_strong {
-  background-color: rgb(215, 47, 17);
-  color: white;
-  padding: 0.5rem;
 }
 
 .hide {
